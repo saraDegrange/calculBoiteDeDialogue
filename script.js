@@ -25,20 +25,24 @@ do {
 switch (choix) {
     case 1:
         resultat = additon(nb1, nb2);
+        signe = " + ";
         break;
     case 2:
         resultat = soustraction(nb1, nb2);
+        signe = " - ";
         break;
     case 3:
         resultat = multiplucation(nb1, nb2);
+        signe = " * ";
         break;
     case 4:
         resultat = division(nb1, nb2);
+        signe = " / ";
         break;
     default:
         break;
 }
-signe = affichageSigne(choix);
+
 alert("Le resultat de " + nb1 + signe + nb2 + " est de " + resultat + ".");
 
 //------------ FONCTIONS ------------
@@ -64,21 +68,4 @@ function division(nombreA, nombreB) {
     // }
     let resultat = nombreA / nombreB;
     return resultat;
-}
-
-function affichageSigne(choix) {
-    let signe = ""
-    if (choix === 1) {
-        signe = " + "
-    }
-    if (choix === 2) {
-        signe = " - "
-    }
-    if (choix === 3) {
-        signe = " * "
-    }
-    if (choix === 4) {
-        signe = " + "
-    }
-    return signe
 }
