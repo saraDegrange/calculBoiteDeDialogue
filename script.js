@@ -24,29 +24,34 @@ do {
 
     } while (isNaN(nb1) || isNaN(nb2));
 
-    switch (choix) {
-        case 1:
-            resultat = additon(nb1, nb2);
-            signe = " + ";
-            break;
-        case 2:
-            resultat = soustraction(nb1, nb2);
-            signe = " - ";
-            break;
-        case 3:
-            resultat = multiplucation(nb1, nb2);
-            signe = " * ";
-            break;
-        case 4:
-            resultat = division(nb1, nb2);
-            signe = " / ";
-            break;
-        default:
-            break;
+   try {     
+       switch (choix) {
+            case 1:
+                resultat = additon(nb1, nb2);
+                signe = " + ";
+                break;
+            case 2:
+                resultat = soustraction(nb1, nb2);
+                signe = " - ";
+                break;
+            case 3:
+                resultat = multiplication(nb1, nb2);
+                signe = " * ";
+                break;
+            case 4:
+                resultat = division(nb1, nb2);
+                signe = " / ";
+                break;
+            default:
+                throw new Error("Une erreur est survenue");
+            }
+            alert("Le resultat de " + nb1 + signe + nb2 + " est de " + resultat + ".");
+        }
+    catch(error){
+        alert(error);
     }
-
-    alert("Le resultat de " + nb1 + signe + nb2 + " est de " + resultat + ".");
-    recommencer = confirm("Voulez vous refaire un calcul ? (Annuler pour quitter // ok pour recommencer) S");
+    
+    recommencer = confirm("Voulez vous refaire un calcul ? (Annuler pour quitter // ok pour recommencer)");
 }while (recommencer === true);
 
 //------------ FONCTIONS ------------
@@ -67,9 +72,9 @@ function multiplucation(nombreA, nombreB) {
 
 function division(nombreA, nombreB) {
     // création d'une erreur si nombre B vaut 0 
-    // if (nombreB===0) {
-
-    // }
+    if (nombreB===0) {
+        throw new Error("Impossible de diviser par 0");
+    }
     let resultat = nombreA / nombreB;
     return resultat;
 }
